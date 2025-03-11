@@ -36,8 +36,10 @@ export async function getIncomeStatement(symbol) {
             }
         })
         const data = response.data["quarterlyReports"];
-        const latestEarnings = data[0];
-        return latestEarnings;
+        const date = Object.keys(data);
+        const latestDate = date[0];
+        const latestIncomeStatement = data[latestDate]
+        return {...latestIncomeStatement};
 	} catch (error) {
 		console.log("Internal server error", error);
 		throw error;
@@ -54,8 +56,10 @@ export async function getCashFlow(symbol) {
             }
         })
         const data = response.data["quarterlyReports"];
-        const latestCashFlow = data[0];
-        return latestCashFlow;
+        const date = Object.keys(data);
+        const latestDate = date[0];
+        const latestCashFlow = data[latestDate];
+        return {...latestCashFlow};
 	} catch (error) {
 		console.log("Internal server error", error);
 		throw error;
@@ -72,8 +76,10 @@ export async function getBalanceSheet(symbol) {
             }
         })
         const data = response.data["quarterlyReports"];
-        const latestCashFlow = data[0];
-        return latestCashFlow;
+        const date = Object.keys(data);
+        const latestDate = date[0];
+        const latestBalanceSheet = data[latestDate];
+        return {...latestBalanceSheet};
 	} catch (error) {
 		console.log("Internal server error", error);
 		throw error;
