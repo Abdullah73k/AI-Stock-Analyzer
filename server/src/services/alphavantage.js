@@ -16,8 +16,10 @@ export async function getMonthly(symbol) {
 			},
 		});
 		const data = response.data["Monthly Time Series"];
-		const latestWeek = data[0];
-        return latestWeek;
+		const dates = Object.keys(data);
+        const latestDate = dates[0];
+        const latestMonthData = data[latestDate];
+        return {date: latestDate, ...latestMonthData};
 	} catch (error) {
 		console.log("Internal server error", error);
 		throw error;

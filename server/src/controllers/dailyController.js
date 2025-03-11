@@ -7,12 +7,13 @@ import {
 } from "../services/alphavantage.js";
 
 export const getStock = async (req, res) => {
-    const symbol = req.body;
+    const { symbol } = req.body;
     try {
-        const result = await getBalanceSheet(Symbol);
+        const result = await getMonthly(symbol);
         console.log(result)
+        res.json(result);
     } catch (error) {
         console.log("Internal server error", error);
-        throw error;
+        res.status(500).json({ error: "Internal server error" });
     }
 }
