@@ -17,13 +17,14 @@ export async function getMonthly(symbol) {
 		});
 		const data = response.data["Monthly Time Series"];
 		const latestWeek = data[0];
+        return latestWeek;
 	} catch (error) {
 		console.log("Internal server error", error);
 		throw error;
 	}
 }
 
-export async function getQuarterlyReports(symbol) {
+export async function getIncomeStatement(symbol) {
 	try {
         const response = await axios.get(BASE_URL, {
             params: {
@@ -32,9 +33,48 @@ export async function getQuarterlyReports(symbol) {
                 apikey: API_KEY,
             }
         })
-        const data = response.data;
+        const data = response.data["quarterlyReports"];
+        const latestEarnings = data[0];
+        return latestEarnings;
 	} catch (error) {
 		console.log("Internal server error", error);
 		throw error;
 	}
 }
+
+export async function getCashFlow(symbol) {
+	try {
+        const response = await axios.get(BASE_URL, {
+            params: {
+                function: "CASH_FLOW",
+                symbol: symbol,
+                apikey: API_KEY,
+            }
+        })
+        const data = response.data["quarterlyReports"];
+        const latestCashFlow = data[0];
+        return latestCashFlow;
+	} catch (error) {
+		console.log("Internal server error", error);
+		throw error;
+	}
+}
+
+export async function getBalanceSheet(symbol) {
+	try {
+        const response = await axios.get(BASE_URL, {
+            params: {
+                function: "BALANCE_SHEET",
+                symbol: symbol,
+                apikey: API_KEY,
+            }
+        })
+        const data = response.data["quarterlyReports"];
+        const latestCashFlow = data[0];
+        return latestCashFlow;
+	} catch (error) {
+		console.log("Internal server error", error);
+		throw error;
+	}
+}
+
