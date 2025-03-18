@@ -1,10 +1,9 @@
-import Chart from "./components/Chart"
+import ChartPrediction from "./components/Chart"
 
 function App() {
   return (
     <>
-      <h1>hello</h1>
-
+        <ChartPrediction />
     </>
   );
 }
