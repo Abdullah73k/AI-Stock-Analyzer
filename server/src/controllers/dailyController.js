@@ -6,8 +6,9 @@ import {
 	getCashFlow,
 } from "../services/alphavantage.js";
 
+let deepseekAnalysis;
 
-export const getStockAnalysis = async (req, res) => {
+export const postStockAnalysis = async (req, res) => {
 	const { symbol } = req.body;
 	try {
 		const cashFlow = await getCashFlow(symbol);
@@ -22,9 +23,13 @@ export const getStockAnalysis = async (req, res) => {
 			incomeStatement,
 			symbol
 		);
-		res.json(response);
+		deepseekAnalysis = response
 	} catch (error) {
 		console.log("Internal server error", error);
 		res.status(500).json({ error: "Internal server error, couldn't analyze stock" });
 	}
 };
+
+export const getStockAnalysis = (req, res) => {
+	res.json(deepseekAnalysis);
+}

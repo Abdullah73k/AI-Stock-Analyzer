@@ -1,5 +1,10 @@
-export default function Analysis() {
+
+export default function Analysis({aiAnalysis}) {
+
+    
     return (
-        <p></p>
+        <p>
+            
+            hello{aiAnalysis}</p>
     )
 }

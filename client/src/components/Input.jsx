@@ -1,7 +1,8 @@
-export default function Input() {
+export default function Input({onClick, onChange, value}) {
     return (
-        <form action="">
-            <input type="text" />
+        <form onSubmit={onClick}>
+            <input type="text" onChange={onChange} value={value}/>
+            <button type="submit">Analyze Symbol</button>
         </form>
     )
 }
