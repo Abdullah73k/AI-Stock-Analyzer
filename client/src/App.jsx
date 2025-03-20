@@ -50,7 +50,7 @@ function App() {
 			<div className="heading">
 				<h1 className="title">STOCK AI</h1>
 				<p>
-					Enter a valid symbol below to get a well-structured long-term analysis
+					Enter a valid symbol below (all caps) to get a well-structured long-term analysis
 					and a price prediction chart from our reasoning model.
 				</p>
 			</div>
