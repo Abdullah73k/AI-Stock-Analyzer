@@ -6,10 +6,14 @@ import {
 	getCashFlow,
 } from "../services/alphavantage.js";
 
-let deepseekAnalysis;
 
 export const postStockAnalysis = async (req, res) => {
 	const { symbol } = req.body;
+
+	if (!symbol || typeof symbol !== "string") {
+		return res.status(400).json({ error: "Invalid stock symbol provided" });
+	}
+
 	try {
 		const cashFlow = await getCashFlow(symbol);
 		const incomeStatement = await getIncomeStatement(symbol);
@@ -23,13 +27,10 @@ export const postStockAnalysis = async (req, res) => {
 			incomeStatement,
 			symbol
 		);
-		deepseekAnalysis = response
+		res.json(response);
 	} catch (error) {
 		console.log("Internal server error", error);
 		res.status(500).json({ error: "Internal server error, couldn't analyze stock" });
 	}
 };
 
-export const getStockAnalysis = (req, res) => {
-	res.json(deepseekAnalysis);
-}

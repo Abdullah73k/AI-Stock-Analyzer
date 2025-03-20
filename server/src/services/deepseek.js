@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const deepseek = new OpenAI({
-    baseURL: process.env.DEEPSEEK_BASE_URL,
-    apiKey: process.env.DEEPSEEK_API_KEY
+	baseURL: process.env.DEEPSEEK_BASE_URL,
+	apiKey: process.env.DEEPSEEK_API_KEY
 })
 
 async function analyzeStock(
@@ -56,7 +56,7 @@ async function analyzeStock(
 			},
 		],
 		temperature: 0.1,
-		max_tokens: 1000,
+		max_tokens: 2000,
 	});
 
 	let responseText = completion.choices[0].message.content;
@@ -66,4 +66,4 @@ async function analyzeStock(
 }
 
 export default deepseek;
-export {analyzeStock};
+export { analyzeStock };
