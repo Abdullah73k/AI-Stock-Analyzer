@@ -1,3 +1,6 @@
 export default function Analysis({ aiAnalysis }) {
-  return <p>hello{aiAnalysis}</p>;
+    const symbols = Object.keys(aiAnalysis);
+  return <div>{symbols.map((symbol) => (
+    <p key={symbol}>{aiAnalysis[symbol]}</p>
+  ))}</div>;
 }

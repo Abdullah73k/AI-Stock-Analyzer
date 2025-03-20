@@ -5,8 +5,8 @@ dotenv.config();
 
 const deepseek = new OpenAI({
 	baseURL: process.env.DEEPSEEK_BASE_URL,
-	apiKey: process.env.DEEPSEEK_API_KEY
-})
+	apiKey: process.env.DEEPSEEK_API_KEY,
+});
 
 async function analyzeStock(
 	balanceSheet,
@@ -25,12 +25,13 @@ async function analyzeStock(
     4. An outlook on its future, including growth potential and industry trends.
     5. A summary of key risks, including company risks and economic/industry risks.
     6. An analysis of the stock’s current valuation, using metrics like P/E ratio and P/B ratio.
-    
-    Finally, provide a conclusion explaining why or why not this stock is a good investment at the moment.
+    7. provide a conclusion explaining why or why not this stock is a good investment at the moment.
+
+	Finally provide a price prediction of the stock for next 6 months. If the month now is march then you start from April and go till september.
     
     Response format:
     You MUST return a valid JSON object ONLY. No extra text before or after the JSON. Do NOT include any markdown anywhere in the response. The response should strictly follow this format:
-    
+    {}
     {
       "summary": "Short summary of the stock's current state.",
       "financial_health": "Key insights on profitability, revenue growth, and EPS.",
@@ -40,6 +41,50 @@ async function analyzeStock(
       "valuation": "Analysis of stock valuation using P/E, P/B, and other relevant metrics.",
       "conclusion": "Final verdict on whether this stock is a good investment at the moment."
     }
+	{
+	 prediction: [
+  {
+    "month": "Page A",
+    "prediction": 4000,
+    "amt": 2400
+  },
+  {
+    "month": "Page A",
+    "prediction": 4000,
+    "amt": 2400
+  },
+  {
+    "month": "Page A",
+    "prediction": 4000,
+    "amt": 2400
+  },
+  {
+    "name": "Page D",
+    "uv": 2780,
+    "pv": 3908,
+    "amt": 2000
+  },
+  {
+    "name": "Page E",
+    "uv": 1890,
+    "pv": 4800,
+    "amt": 2181
+  },
+  {
+    "name": "Page F",
+    "uv": 2390,
+    "pv": 3800,
+    "amt": 2500
+  },
+  {
+    "name": "Page G",
+    "uv": 3490,
+    "pv": 4300,
+    "amt": 2100
+  }
+]
+
+	}
     
     Ensure all responses strictly follow this format.`;
 
