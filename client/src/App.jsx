@@ -8,14 +8,12 @@ import { useState } from "react";
 function App() {
 	const [response, setResponse] = useState([]);
 	const [symbol, setSymbol] = useState("");
-	const [isLoading, setIsLoading] = useState(false);
 
 	const onInputChange = (event) => {
 		setSymbol(event.target.value);
 	};
 
 	const onButtonClick = async (event) => {
-		setIsLoading(true);
 		event.preventDefault();
 
 		try {
@@ -35,24 +33,14 @@ function App() {
 
 	return (
 		<>
-			{isLoading ? (
-				<Loader />
-			) : (
-				<>
-					<h1>STOCK AI</h1>
-					<p>
-						Enter a valid symbol below to get a well-structured long-term
-						analysis from our reasoning model.
-					</p>
-					<Input
-						onClick={onButtonClick}
-						onChange={onInputChange}
-						value={symbol}
-					/>
-					<Analysis aiAnalysis={response} />
-					<ChartPrediction />{" "}
-				</>
-			)}
+			<h1>STOCK AI</h1>
+			<p>
+				Enter a valid symbol below to get a well-structured long-term analysis
+				from our reasoning model.
+			</p>
+			<Input onClick={onButtonClick} onChange={onInputChange} value={symbol} />
+			<Analysis aiAnalysis={response} />
+			<ChartPrediction aiAnalysis={response} />
 		</>
 	);
 }
