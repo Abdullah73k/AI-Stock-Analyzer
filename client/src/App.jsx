@@ -14,9 +14,9 @@ function App() {
 	};
 
 	let Chart;
-	if (response && response.prediction && response.prediction.length > 0) {
+	if (response?.prediction?.length > 0) {
 		Chart = <ChartPrediction aiAnalysis={response}/>
-	} else if (response && response.prediction && response.prediction.length == 0){
+	} else if (response?.prediction?.length == 0){
 		Chart = <p>Couldn't get chart prediction, please try again at a later time.</p>
 	}
 
