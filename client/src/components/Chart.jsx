@@ -20,7 +20,6 @@ export default function ChartPrediction({ aiAnalysis }) {
 					<XAxis dataKey="month" />
 					<YAxis />
 					<Tooltip />
-					<Legend />
 					<Line type="monotone" dataKey="prediction" stroke="#8884d8" />
 				</LineChart>
 			</ResponsiveContainer>

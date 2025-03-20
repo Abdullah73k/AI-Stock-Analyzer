@@ -45,32 +45,31 @@ You MUST return a valid JSON object ONLY. No extra text before or after the JSON
   "prediction": [
     {
       "month": "April",
-      "prediction": "Provide an integer price prediction in US dollars based on the analysis",
+      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price, rounded to 2 decimal places and prefixed with '$'."
     },
     {
       "month": "May",
-      "prediction": "Provide an integer price prediction in US dollars based on the analysis",
+      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price, rounded to 2 decimal places and prefixed with '$'."
     },
     {
       "month": "June",
-      "prediction": "Provide an integer price prediction in US dollars based on the analysis",
+      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price, rounded to 2 decimal places and prefixed with '$'."
     },
     {
       "month": "July",
-      "prediction": "Provide an integer price prediction in US dollars based on the analysis",
+      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price, rounded to 2 decimal places and prefixed with '$'."
     },
     {
       "month": "August",
-      "prediction": "Provide an integer price prediction in US dollars based on the analysis",
+      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price, rounded to 2 decimal places and prefixed with '$'."
     },
     {
       "month": "September",
-      "prediction": "Provide an integer price prediction in US dollars based on the analysis",
+      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price, rounded to 2 decimal places and prefixed with '$'."
     }
   ]
 }
 	Make sure you follow this format`;
-
 
 	const completion = await deepseek.chat.completions.create({
 		model: "deepseek-reasoner",

@@ -15,13 +15,17 @@ function App() {
 
 	let Chart;
 	if (response?.prediction?.length > 0) {
-		Chart = <ChartPrediction aiAnalysis={response}/>
-	} else if (response?.prediction?.length == 0){
-		Chart = <p>Couldn't get chart prediction, please try again at a later time.</p>
+		Chart = <ChartPrediction aiAnalysis={response} />;
+	} else if (response?.prediction?.length == 0) {
+		Chart = (
+			<p>Couldn't get chart prediction, please try again at a later time.</p>
+		);
 	}
 
 	const onButtonClick = async (event) => {
 		event.preventDefault();
+		setResponse([]);
+		setSymbol("");
 		setIsLoading(true);
 
 		try {
@@ -52,7 +56,14 @@ function App() {
 			</div>
 
 			{isLoading ? <Loader /> : null}
-			{isLoading ? null : <Input onClick={onButtonClick} onChange={onInputChange} value={symbol} />}
+			{isLoading ? null : (
+				<Input
+					onClick={onButtonClick}
+					onChange={onInputChange}
+					value={symbol}
+					isLoading={isLoading}
+				/>
+			)}
 			<Analysis aiAnalysis={response} />
 			{isLoading ? null : Chart}
 		</>
