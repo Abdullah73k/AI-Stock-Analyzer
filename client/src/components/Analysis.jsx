@@ -7,7 +7,7 @@ export default function Analysis({ aiAnalysis }) {
 	const analysisDetails = Object.entries(analysis); // Convert object to an array of key-value pairs
 
 	return (
-		<div>
+		<div className="analysis-container">
 			<h2>{name} Analysis</h2>
 			{analysisDetails.map(([key, value]) => (
 				<p key={key}>

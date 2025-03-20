@@ -29,6 +29,7 @@ const Loader = () => {
 const StyledWrapper = styled.div`
   .loader {
     display: flex;
+    height: 60dvh;
     justify-content: center;
     align-items: center;
     --color: hsl(0, 0%, 87%);

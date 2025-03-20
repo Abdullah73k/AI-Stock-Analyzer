@@ -8,13 +8,21 @@ import { useState } from "react";
 function App() {
 	const [response, setResponse] = useState([]);
 	const [symbol, setSymbol] = useState("");
-
+	const [isLoading, setIsLoading] = useState(false);
 	const onInputChange = (event) => {
 		setSymbol(event.target.value);
 	};
 
+	let Chart;
+	if (response && response.prediction && response.prediction.length > 0) {
+		Chart = <ChartPrediction aiAnalysis={response}/>
+	} else if (response && response.prediction && response.prediction.length == 0){
+		Chart = <p>Couldn't get chart prediction, please try again at a later time.</p>
+	}
+
 	const onButtonClick = async (event) => {
 		event.preventDefault();
+		setIsLoading(true);
 
 		try {
 			const data = await axios.post("http://localhost:3000/api/stock/daily", {
@@ -28,19 +36,25 @@ function App() {
 			console.log(data);
 		} catch (error) {
 			console.error("Failed to get Deepseek response", error);
+		} finally {
+			setIsLoading(false);
 		}
 	};
 
 	return (
 		<>
-			<h1>STOCK AI</h1>
-			<p>
-				Enter a valid symbol below to get a well-structured long-term analysis
-				from our reasoning model.
-			</p>
-			<Input onClick={onButtonClick} onChange={onInputChange} value={symbol} />
+			<div className="heading">
+				<h1 className="title">STOCK AI</h1>
+				<p>
+					Enter a valid symbol below to get a well-structured long-term analysis
+					and a price prediction chart from our reasoning model.
+				</p>
+			</div>
+
+			{isLoading ? <Loader /> : null}
+			{isLoading ? null : <Input onClick={onButtonClick} onChange={onInputChange} value={symbol} />}
 			<Analysis aiAnalysis={response} />
-			<ChartPrediction aiAnalysis={response} />
+			{isLoading ? null : Chart}
 		</>
 	);
 }
