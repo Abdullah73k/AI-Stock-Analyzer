@@ -46,15 +46,12 @@ import {
 } from "recharts";
 
 export default function ChartPrediction({ aiAnalysis }) {
-	// Ensure prediction values are numbers
-	const predictionData = aiAnalysis?.prediction?.map(({ month, prediction }) => ({
-		month,
-		prediction: parseFloat(prediction.replace("$", "")), // Convert to number
-	})) || [];
+
+	const predictionData = aiAnalysis?.prediction || [];
 
 	return (
 		<div className="chart">
-			<ResponsiveContainer width="100%" height={300}>
+			<ResponsiveContainer width="90%" height={300}>
 				<LineChart data={predictionData}>
 					<CartesianGrid strokeDasharray="3 3" />
 					<XAxis dataKey="month" />

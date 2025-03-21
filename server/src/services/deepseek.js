@@ -45,27 +45,27 @@ You MUST return a valid JSON object ONLY. No extra text before or after the JSON
   "prediction": [
     {
       "month": "April",
-      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price, rounded to 2 decimal places and prefixed with '$'."
+      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price in 2025, rounded to 2 decimal places."
     },
     {
       "month": "May",
-      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price, rounded to 2 decimal places and prefixed with '$'."
+      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price in 2025, rounded to 2 decimal places."
     },
     {
       "month": "June",
-      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price, rounded to 2 decimal places and prefixed with '$'."
+      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price in 2025, rounded to 2 decimal places."
     },
     {
       "month": "July",
-      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price, rounded to 2 decimal places and prefixed with '$'."
+      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price in 2025, rounded to 2 decimal places."
     },
     {
       "month": "August",
-      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price, rounded to 2 decimal places and prefixed with '$'."
+      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price in 2025, rounded to 2 decimal places."
     },
     {
       "month": "September",
-      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price, rounded to 2 decimal places and prefixed with '$'."
+      "prediction": "Provide a float price prediction in US dollars based on the analysis and ${symbol} current stock price in 2025, rounded to 2 decimal places."
     }
   ]
 }
