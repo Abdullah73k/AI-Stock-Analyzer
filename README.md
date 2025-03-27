@@ -6,7 +6,6 @@
     <br />
     <a href="https://github.com/abdullah73k/ai-stock-analyzer">GitHub Repository</a>
   </p>
-  <img src="https://github.com/user-attachments/assets/721b7fb3-e480-4809-9023-fd48b82b1f8c" alt="Project Image" width="400">
 </div>
 
 ## Table of Contents
